@@ -1,0 +1,40 @@
+<!--{% extends 'ShopMenu.html' %}-->
+<!--{% block title %}-->
+<!--Добавить товар-->
+<!--{% endblock %}-->
+<!--{% block main %}-->
+<!--<div class='catalog'>-->
+<!--<form action='/add' method='POST'>-->
+<!--	<table align='center'>-->
+<!--		<tr>-->
+<!--			<td>Название</td>-->
+<!--			<td><input type='text' name='name' required></td>-->
+<!--		</tr>-->
+<!--		<tr>-->
+<!--			<td>Цена</td>-->
+<!--			<td><input type='text' name='price' required></td>-->
+<!--		</tr>-->
+<!--		<tr>-->
+<!--			<td>Раздел</td>-->
+<!--			<td><select name='collection' required>-->
+<!--				{% for c in collections %}-->
+<!--				<option value='{{c.id}}'>{{c.title}}<>-->
+<!--				{% endfor %}-->
+<!--				</select></td>-->
+<!--		</tr>-->
+<!--		<tr>-->
+<!--			<td>Описание</td>-->
+<!--			<td><textarea rows='4' cols='50' name='descr' required></textarea></td>-->
+<!--		</tr>-->
+<!--</form>-->
+<!--<form action='/add_file' method='POST' enctype="multipart/form-data">-->
+<!--		<tr>-->
+<!--		<td><input type='submit' value='Загрузить'></td>-->
+<!--		</tr>-->
+<!--&lt;!&ndash;		<tr>&ndash;&gt;-->
+<!--&lt;!&ndash;		<td><input type='file' value='Файл' accept='.xlsx' name='excel'></td>&ndash;&gt;-->
+<!--&lt;!&ndash;		</tr>&ndash;&gt;-->
+<!--</form>-->
+<!--	</table>-->
+<!--</div>-->
+<!--{% endblock %}-->

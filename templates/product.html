@@ -1,0 +1,34 @@
+{% extends 'ShopMenu.html' %}
+{% block title %}
+{{ title }}
+{% endblock %}
+{% block main %}
+<div class='description' align='center'>
+<div class='about' align='center'>
+<!--<img src='/shop/{{ item.image }}.jpg' align='center'>-->
+</div>
+<div class='data'>
+<p>Цена: {{ item.price }} &#8381</p>
+<form action='busket' method='post'>
+<button class='busket'>В корзину</button></form>
+</div>
+<p align='left' class='item-description'>
+{{ item.descr }}
+</p>
+{% if user_.is_authenticated %}
+<form action='comment' method='POST' class='form' align='left'>
+<p><textarea rows='4' cols='50' placeholder='Ваш отзыв...' name='comment'></textarea></p>
+<p><input type='submit' value='Отправить'></p>
+</form>
+{% endif %}
+<p>Отзывов: {{ comments|length }} </p>
+<ul class='comments'>
+{% for i in comments %}
+<p><h4 class="commenter">{{ i.username }}</h4><div class="comment">{{ i.body }}</div><div>
+<span>{{ i.date.date() }}</span></div></p>
+{% endfor %}
+</ul>
+</div>
+{% endblock %}
+{% block script %}
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>{% endblock %}

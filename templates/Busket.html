@@ -1,0 +1,24 @@
+{% extends 'ShopMenu.html' %}
+{% block main %}
+<div class='catalog' align='center'>
+{% if items|length!=0 %}
+{% for g in items %}
+<div class='item' align='center'>
+<!--<img src='shop/{{ g.Item.image }}_preview.jpg'>-->
+<a href='/tovary/{{ g.Item.id }}' title='{{ g.Item.title }}'>{{ g.Item.title }}</a>
+<p>{{g.Item.price}} рублей</p>
+</div>
+{% endfor %}
+</div>
+<div class="container_but">
+<form action='/busket/del' method='post'>
+<button class='add' title='Отчистить корзину' >Отчистить корзину</button></form>
+<form action='order' method='post' align='center'>
+<button class='add'>Оформить заказ</button>
+</form>
+
+</div>
+{% else %}
+<span>Ваша корзина пуста</span>
+{% endif %}
+{% endblock %}

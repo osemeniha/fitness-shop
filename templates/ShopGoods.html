@@ -1,0 +1,43 @@
+{% extends 'ShopMenu.html' %}
+{% block title %}
+{{ col.trans }}
+{% endblock %}
+{% block main %}
+
+<div class='catalog' align='center'>
+{% for g in goods.items %}
+<div class='item' align='left'>
+<!--<img src='/shop/{{ g.Item.image }}_preview.jpg'>-->
+<a href='/tovary/{{ g.Item.id }}' title='{{ g.Item.title }}' class='item-name' align='center'>{{ g.Item.title }}</a>
+<p>{{ g.Item.price }} &#8381</p>
+{% if g.Item.id not in bus%}
+<form action='/tovary/{{ g.Item.id }}/busket' method='post'>
+<button class='add' title='Добавить'>Добавить</button></form>
+{% else %}
+<div class='add' align='center'>
+<!-- <a title='В корзину' class='to_busket' href='/busket'>В корзину</a> -->
+<button class='to_busket'><a style='color:white;text-decoration:none' href='/busket'><span>В корзину</span></a></button>
+</div>
+{% endif %}
+</div>
+{% endfor %}
+<!--</div>-->
+<div class='page' align='center'>
+{% for pg in goods.iter_pages(left_edge=1,right_edge=1, left_current=1, right_current=2) %}
+{% if pg %}
+{% if goods.page==pg %}
+<a>{{ pg }}</a>
+{% else %}
+{% if col.title!='tovary' %}
+<a href="{{ url_for('page',collect=col.title,page=pg) }}">{{ pg }}</a>
+{% else %}
+<a href="{{ url_for('all_',page=pg) }}">{{ pg }}</a>
+{% endif %}
+{% endif %}
+{% else %}
+...
+{% endif %}
+{% endfor %}
+</div>
+</div>
+{% endblock %}

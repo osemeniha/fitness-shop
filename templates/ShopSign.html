@@ -1,0 +1,22 @@
+﻿{% extends 'ShopBase.html' %}
+{% block content %}
+{% block title %}
+Регистрация
+{% endblock %}
+<form method='POST'>
+	<table align='center'>
+		<tr>
+			<td>Ваш e-mail</td>
+			<td><input type='text' name='login'></td>
+		</tr>
+		<tr>
+			<td>Пароль</td>
+			<td><input type='password' name='password'></td>
+		</tr>
+		<tr>
+			<td>Зарегистрироваться</td>
+			<td><input type='submit'></td>
+		</tr>
+	</table>
+</form>
+{% endblock %}

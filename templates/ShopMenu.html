@@ -1,0 +1,22 @@
+﻿{% extends 'ShopBase.html' %}
+{% block content %}
+<div class='content'>
+<div class='vertical-menu'>
+<p class='catal'>Каталог</p>
+{% if col.trans=='Все товары' %}
+<a href='/tovary' class='active'>Все товары</a>
+{% else %}
+<a href='/tovary' class='link'>Все товары</a>
+{% endif %}
+{% for c in collections %}
+{% if c.title==col %}
+<a href='/{{ c.title }}' class='active'>{{ c.trans }}</a>
+{% else %}
+<a href='/{{ c.title }}' class='link'>{{ c.trans }}</a>
+{% endif %}
+{% endfor %}
+</div>
+{% block main %}
+{% endblock %}
+</div>
+{% endblock %}
