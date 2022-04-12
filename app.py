@@ -144,7 +144,8 @@ def login():
                  login_user(user,remember=True)
                  return redirect(url_for('main'))
              else:
-                 return flash('Error')
+                 flash('Неправильный логин или пароль')
+                 return render_template('ShopLogin.html', title='Вход', user_=current_user)
      flash('Fill both fields')
      return render_template('ShopLogin.html',title='Вход',user_=current_user)
 
